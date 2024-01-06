@@ -1,4 +1,4 @@
-package carinventory.itc.cargarageinventory;
+package carinventory.itc.cargarageinventory.entity;
 
 public class Vehicle {
     int vid;
