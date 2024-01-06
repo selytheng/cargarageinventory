@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Inventory</title>
+    <!-- Add your CSS stylesheets or include a front-end framework if needed -->
+  </head>
+  <body>
+    <h1>Car Inventory</h1>
+
+    <!-- Display a table with car information -->
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Model Year</th>
+          <th>Manufacturer</th>
+          <th>Model</th>
+          <th>Color</th>
+          <th>Mileage</th>
+          <th>Registration Number</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="carTableBody">
+        <!-- Car information will be dynamically added here -->
+      </tbody>
+    </table>
+
+    <!-- Add your JavaScript scripts if needed -->
+    <script>
+      // Fetch car data from the backend and populate the table
+      fetch("/api/vehicles") // Replace with your actual API endpoint
+        .then((response) => response.json())
+        .then((data) => {
+          const carTableBody = document.getElementById("carTableBody");
+          data.forEach((car) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                        <td>${car.vid}</td>
+                        <td>${car.model_year}</td>
+                        <td>${car.manufacturer}</td>
+                        <td>${car.model}</td>
+                        <td>${car.color}</td>
+                        <td>${car.mileage}</td>
+                        <td>${car.registation_number}</td>
+                        <td>${car.price}</td>
+                    `;
+            carTableBody.appendChild(row);
+          });
+        })
+        .catch((error) => console.error("Error fetching car data:", error));
+    </script>
+  </body>
+</html>

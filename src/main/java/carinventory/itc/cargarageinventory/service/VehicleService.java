@@ -1,7 +1,10 @@
-package carinventory.itc.cargarageinventory;
+package carinventory.itc.cargarageinventory.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import carinventory.itc.cargarageinventory.repository.VehicleRepository;
+import carinventory.itc.cargarageinventory.entity.Vehicle;
 
 import java.util.List;
 

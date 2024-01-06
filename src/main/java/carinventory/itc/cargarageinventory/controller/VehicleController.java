@@ -1,9 +1,12 @@
-package carinventory.itc.cargarageinventory;
+package carinventory.itc.cargarageinventory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import carinventory.itc.cargarageinventory.entity.Vehicle;
+import carinventory.itc.cargarageinventory.service.VehicleService;
 
 import java.util.List;
 
@@ -20,7 +23,7 @@ public class VehicleController {
         return new ResponseEntity<>(vehicles, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/vehicle")
     public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
         Vehicle vehicle = VehicleService.getVehicleById(id);
         return vehicle != null ? new ResponseEntity<>(vehicle, HttpStatus.OK)
