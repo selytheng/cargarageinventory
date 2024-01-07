@@ -32,22 +32,27 @@
     <!-- Add your JavaScript scripts if needed -->
     <script>
       // Fetch car data from the backend and populate the table
-      fetch("/api/vehicles") // Replace with your actual API endpoint
-        .then((response) => response.json())
+      fetch("/allvehicle") // Use the correct URL based on your Spring Boot application setup
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
         .then((data) => {
           const carTableBody = document.getElementById("carTableBody");
           data.forEach((car) => {
             const row = document.createElement("tr");
             row.innerHTML = `
-                        <td>${car.vid}</td>
-                        <td>${car.model_year}</td>
-                        <td>${car.manufacturer}</td>
-                        <td>${car.model}</td>
-                        <td>${car.color}</td>
-                        <td>${car.mileage}</td>
-                        <td>${car.registation_number}</td>
-                        <td>${car.price}</td>
-                    `;
+                    <td>${car.vid}</td>
+                    <td>${car.model_year}</td>
+                    <td>${car.manufacturer}</td>
+                    <td>${car.model}</td>
+                    <td>${car.color}</td>
+                    <td>${car.mileage}</td>
+                    <td>${car.registation_number}</td>
+                    <td>${car.price}</td>
+                `;
             carTableBody.appendChild(row);
           });
         })

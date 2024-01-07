@@ -1,14 +1,40 @@
 package carinventory.itc.cargarageinventory.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "vehicle")
 public class Vehicle {
-    int vid;
-    int model_year;
-    String manufacturer;
-    String model;
-    String color;
-    String mileage;
-    String registation_number;
-    int price;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "vid")
+    private int vid;
+
+    @Column(name = "model_year")
+    private int model_year;
+
+    @Column(name = "manufacturer")
+    private String manufacturer;
+
+    @Column(name = "model")
+    private String model;
+
+    @Column(name = "color")
+    private String color;
+
+    @Column(name = "mileage")
+    private String mileage;
+
+    @Column(name = "registation_number")
+    private String registation_number;
+
+    @Column(name = "price")
+    private int price;
 
     public Vehicle(int vid, int model_year, String manufacturer, String model, String color, String mileage,
             String registation_number, int price) {

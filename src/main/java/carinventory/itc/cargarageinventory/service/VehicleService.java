@@ -15,19 +15,19 @@ public class VehicleService {
     private VehicleRepository vehicleRepository;
 
     public List<Vehicle> getAllVehicles() {
-        return vehicleRepository.findAll();
+        return (List<Vehicle>) vehicleRepository.findAll();
     }
 
-    public Vehicle getVehicleById(Long id) {
-        return vehicleRepository.findById(id).orElse(null);
+    public Vehicle getVehicleById(int vid) {
+        return vehicleRepository.findById(vid).orElse(null);
     }
 
     public void addVehicle(Vehicle vehicle) {
         vehicleRepository.save(vehicle);
     }
 
-    public void updateVehicle(Long id, Vehicle updatedVehicle) {
-        Vehicle existingVehicle = vehicleRepository.findById(id).orElse(null);
+    public void updateVehicle(int vid, Vehicle updatedVehicle) {
+        Vehicle existingVehicle = vehicleRepository.findById(vid).orElse(null);
         if (existingVehicle != null) {
             // Update fields based on your requirements
             existingVehicle.setVid(updatedVehicle.getVid());
@@ -44,7 +44,7 @@ public class VehicleService {
         }
     }
 
-    public void deleteVehicle(Long id) {
-        vehicleRepository.deleteById(id);
+    public void deleteVehicle(int vid) {
+        vehicleRepository.deleteById(vid);
     }
 }

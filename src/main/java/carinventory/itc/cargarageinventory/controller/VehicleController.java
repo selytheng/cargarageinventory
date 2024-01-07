@@ -12,27 +12,38 @@ import carinventory.itc.cargarageinventory.service.VehicleService;
 import java.util.List;
 
 @Controller
+@RequestMapping("/vehicle")
 public class VehicleController {
 
     @Autowired
     private VehicleService VehicleService;
 
-    @GetMapping("/")
-    public String vehicle() {
-        return "vehicle";
-    }
+    // @GetMapping("/vehicle")
+    // public String vehiclePage() {
+    // return "vehicle"; // Assuming "vehicle" is the name of a Thymeleaf or JSP
+    // template
+    // }
 
-    @GetMapping
+    @GetMapping("/allvehicles")
     public ResponseEntity<List<Vehicle>> getAllVehicles() {
-        List<Vehicle> vehicles = VehicleService.getAllVehicles();
+        List<Vehicle> vehicles = null;
+        try {
+            vehicles = VehicleService.getAllVehicles();
+        } catch (Exception e) {
+            e.getMessage();
+        }
         return new ResponseEntity<>(vehicles, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
-        Vehicle vehicle = VehicleService.getVehicleById(id);
-        return vehicle != null ? new ResponseEntity<>(vehicle, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    @GetMapping("/getVehicleById/{vid}")
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable int vid) {
+        Vehicle vehicle = null;
+        try {
+            vehicle = VehicleService.getVehicleById(vid);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
 
     @PostMapping
@@ -41,15 +52,15 @@ public class VehicleController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateVehicle(@PathVariable Long id, @RequestBody Vehicle updatedVehicle) {
+    @PutMapping("/updateVehicle/{id}")
+    public ResponseEntity<Void> updateVehicle(@PathVariable int id, @RequestBody Vehicle updatedVehicle) {
         VehicleService.updateVehicle(id, updatedVehicle);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVehicle(@PathVariable Long id) {
-        VehicleService.deleteVehicle(id);
+    @DeleteMapping("/deleteVehicle/{id}")
+    public ResponseEntity<Void> deleteVehicle(@PathVariable int vid) {
+        VehicleService.deleteVehicle(vid);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
