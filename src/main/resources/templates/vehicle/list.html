@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle List</title>
+    <link rel="stylesheet" th:href="@{/styles/vehicle.css}" />
+    <script type="text/javascript" th:src="@{/scripts/vehicle.js}" /></script>
+</head>
+<body>
+    <h2>Vehicle List</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Model Year</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Mileage</th>
+                <th>Registration Number</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vehicle : ${vehicles}">
+                <td th:text="${vehicle.vid}"></td>
+                <td th:text="${vehicle.model_year}"></td>
+                <td th:text="${vehicle.manufacturer}"></td>
+                <td th:text="${vehicle.model}"></td>
+                <td th:text="${vehicle.color}"></td>
+                <td th:text="${vehicle.mileage}"></td>
+                <td th:text="${vehicle.registation_number}"></td>
+                <td th:text="${vehicle.price}"></td>
+                <td>
+                    <a th:href="@{/vehicles/showFormForUpdate(vid=${vehicle.vid})}">Edit</a>
+                    <a th:href="@{/vehicles/delete(vid=${vehicle.vid})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/vehicles/showFormForAdd}">Add

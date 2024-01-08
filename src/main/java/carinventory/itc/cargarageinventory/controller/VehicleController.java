@@ -1,66 +1,51 @@
 package carinventory.itc.cargarageinventory.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
 import carinventory.itc.cargarageinventory.entity.Vehicle;
 import carinventory.itc.cargarageinventory.service.VehicleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/vehicle")
+@RequestMapping("/vehicles")
 public class VehicleController {
 
     @Autowired
-    private VehicleService VehicleService;
+    private VehicleService vehicleService;
 
-    // @GetMapping("/vehicle")
-    // public String vehiclePage() {
-    // return "vehicle"; // Assuming "vehicle" is the name of a Thymeleaf or JSP
-    // template
-    // }
-
-    @GetMapping("/allvehicles")
-    public ResponseEntity<List<Vehicle>> getAllVehicles() {
-        List<Vehicle> vehicles = null;
-        try {
-            vehicles = VehicleService.getAllVehicles();
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return new ResponseEntity<>(vehicles, HttpStatus.OK);
+    @GetMapping("/list")
+    public String listVehicles(Model model) {
+        List<Vehicle> vehicles = vehicleService.getAllVehicles();
+        model.addAttribute("vehicles", vehicles);
+        return "vehicle/list";
     }
 
-    @GetMapping("/getVehicleById/{vid}")
-    public ResponseEntity<Vehicle> getVehicleById(@PathVariable int vid) {
-        Vehicle vehicle = null;
-        try {
-            vehicle = VehicleService.getVehicleById(vid);
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return new ResponseEntity<>(vehicle, HttpStatus.OK);
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd(Model model) {
+        Vehicle vehicle = new Vehicle();
+        model.addAttribute("vehicle", vehicle);
+        return "vehicle/add-form";
     }
 
-    @PostMapping
-    public ResponseEntity<Void> addVehicle(@RequestBody Vehicle vehicle) {
-        VehicleService.addVehicle(vehicle);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @PostMapping("/saveVehicle")
+    public String saveVehicle(@ModelAttribute("vehicle") Vehicle vehicle) {
+        vehicleService.saveOrUpdateVehicle(vehicle);
+        return "redirect:/vehicles/list";
     }
 
-    @PutMapping("/updateVehicle/{id}")
-    public ResponseEntity<Void> updateVehicle(@PathVariable int id, @RequestBody Vehicle updatedVehicle) {
-        VehicleService.updateVehicle(id, updatedVehicle);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("vid") int vid, Model model) {
+        Vehicle vehicle = vehicleService.getVehicleById(vid);
+        model.addAttribute("vehicle", vehicle);
+        return "vehicle/add-form";
     }
 
-    @DeleteMapping("/deleteVehicle/{id}")
-    public ResponseEntity<Void> deleteVehicle(@PathVariable int vid) {
-        VehicleService.deleteVehicle(vid);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @GetMapping("/delete")
+    public String deleteVehicle(@RequestParam("vid") int vid) {
+        vehicleService.deleteVehicle(vid);
+        return "redirect:/vehicles/list";
     }
 }

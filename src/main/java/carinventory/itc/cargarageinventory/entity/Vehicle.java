@@ -36,6 +36,16 @@ public class Vehicle {
     @Column(name = "price")
     private int price;
 
+    public Vehicle() {
+        this.model_year = 0;
+        this.manufacturer = "Unknown";
+        this.model = "Unknown";
+        this.color = "Unknown";
+        this.mileage = "N/A";
+        this.registation_number = "N/A";
+        this.price = 0;
+    }
+
     public Vehicle(int vid, int model_year, String manufacturer, String model, String color, String mileage,
             String registation_number, int price) {
         this.vid = vid;
