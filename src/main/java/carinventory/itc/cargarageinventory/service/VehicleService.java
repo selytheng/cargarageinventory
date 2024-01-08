@@ -12,4 +12,8 @@ public interface VehicleService {
     void saveOrUpdateVehicle(Vehicle vehicle);
 
     void deleteVehicle(int vid);
+
+    // Add the following method to the VehicleService interface
+
+    List<Vehicle> searchVehicles(String search);
 }

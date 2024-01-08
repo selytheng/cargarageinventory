@@ -34,29 +34,7 @@ public class Vehicle {
     private String registation_number;
 
     @Column(name = "price")
-    private int price;
-
-    public Vehicle() {
-        this.model_year = 0;
-        this.manufacturer = "Unknown";
-        this.model = "Unknown";
-        this.color = "Unknown";
-        this.mileage = "N/A";
-        this.registation_number = "N/A";
-        this.price = 0;
-    }
-
-    public Vehicle(int vid, int model_year, String manufacturer, String model, String color, String mileage,
-            String registation_number, int price) {
-        this.vid = vid;
-        this.model_year = model_year;
-        this.manufacturer = manufacturer;
-        this.model = model;
-        this.color = color;
-        this.mileage = mileage;
-        this.registation_number = registation_number;
-        this.price = price;
-    }
+    private String price;
 
     public int getVid() {
         return vid;
@@ -114,11 +92,34 @@ public class Vehicle {
         this.registation_number = registation_number;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
+
+    public Vehicle(int vid, int model_year, String manufacturer, String model, String color, String mileage,
+            String registation_number, String price) {
+        this.vid = vid;
+        this.model_year = model_year;
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.color = color;
+        this.mileage = mileage;
+        this.registation_number = registation_number;
+        this.price = price;
+    }
+
+    public Vehicle() {
+        this.model_year = 0;
+        this.manufacturer = null;
+        this.model = null;
+        this.color = null;
+        this.mileage = null;
+        this.registation_number = null;
+        this.price = null;
+    }
+
 }

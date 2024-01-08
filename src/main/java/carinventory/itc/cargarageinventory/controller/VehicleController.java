@@ -16,12 +16,12 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    @GetMapping("/list")
-    public String listVehicles(Model model) {
-        List<Vehicle> vehicles = vehicleService.getAllVehicles();
-        model.addAttribute("vehicles", vehicles);
-        return "vehicle/list";
-    }
+    // @GetMapping("/list")
+    // public String listVehicles(Model model) {
+    // List<Vehicle> vehicles = vehicleService.getAllVehicles();
+    // model.addAttribute("vehicles", vehicles);
+    // return "vehicle/list";
+    // }
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
@@ -48,4 +48,18 @@ public class VehicleController {
         vehicleService.deleteVehicle(vid);
         return "redirect:/vehicles/list";
     }
+
+    // Update the listVehicles method in VehicleController
+
+    @GetMapping("/list")
+    public String listVehicles(@RequestParam(required = false) String search, Model model) {
+        List<Vehicle> vehicles;
+
+        // Perform a filtered search based on the provided search parameter
+        vehicles = vehicleService.searchVehicles(search);
+
+        model.addAttribute("vehicles", vehicles);
+        return "vehicle/list";
+    }
+
 }

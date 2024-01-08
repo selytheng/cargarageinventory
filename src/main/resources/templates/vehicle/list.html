@@ -41,4 +41,15 @@
         </tbody>
     </table>
 
-    <a th:href="@{/vehicles/showFormForAdd}">Add
+    <a th:href="@{/vehicles/showFormForAdd}">Add</a>
+
+    <!-- Add the following lines above the table in list.html -->
+
+    <h2>Search Vehicles</h2>
+    <form th:action="@{/vehicles/list}" method="get">
+        <label>Search: <input type="text" name="search" /></label>
+        <button type="submit">Search</button>
+    </form>
+
+    </body>
+    </html>
