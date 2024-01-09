@@ -142,13 +142,15 @@
             th{
                 /* width: 120px; */
                 height: 45px;
-                background-color: #D6803A;
+                background-color: gray;
                 border: solid 1px black;
                 /* display: flex; */
                 /* align-items: center; */
                 padding: 0 0 0 5px;
             }
-          
+            .class{
+                width: ;
+            }
             /* Do this… */
             tr:nth-of-type(odd) {
                 background-color: #ccc; }
@@ -171,5 +173,4 @@
             a{
                 text-decoration: none;
             }
-        
        
