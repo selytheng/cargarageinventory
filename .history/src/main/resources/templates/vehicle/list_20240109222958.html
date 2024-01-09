@@ -92,9 +92,9 @@
                     <tbody>
                         <tr th:each="vehicle : ${vehicles}">
                             <td class="you" th:text="${vehicle.vid}"></td>
+                            <td th:text="${vehicle.model_year}"></td>
                             <td th:text="${vehicle.manufacturer}"></td>
                             <td th:text="${vehicle.model}"></td>
-                            <td th:text="${vehicle.model_year}"></td>
                             <td th:text="${vehicle.color}"></td>
                             <td th:text="${vehicle.mileage}"></td>
                             <td th:text="${vehicle.registation_number}"></td>

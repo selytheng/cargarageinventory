@@ -149,13 +149,13 @@
             }
             /* Do this… */
             tr:nth-of-type(odd) {
-                background-color: #fff; 
-                /* padding: 0 0 0 5px; */
+                /* background-color: #ccc; 
+                padding: 0 0 0 5px; */
             }
 
             /* …or this */
             tr:nth-of-type(even) {
-                background-color: #e6dbdb; 
+                background-color: #fff; 
                 }
             td{
                 width: 180px;

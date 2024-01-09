@@ -149,13 +149,11 @@
             }
             /* Do this… */
             tr:nth-of-type(odd) {
-                background-color: #fff; 
-                /* padding: 0 0 0 5px; */
-            }
+                background-color: #ccc; }
 
             /* …or this */
             tr:nth-of-type(even) {
-                background-color: #e6dbdb; 
+                background-color: #fff; 
                 }
             td{
                 width: 180px;
@@ -171,20 +169,14 @@
             a{
                 text-decoration: none;
             }
-            .you{
-                /* background-color: green; */
-                width: 70px;
-                /* display: flex; */
-            
+            .id{
+                background-color: green;
+                width: 50px;
             }
             .act{
-                width: 90px;
                 display: flex;
-                /* background-color: pink; */
-                gap: 20px;
-                align-items: center;
-                justify-content: center;
-                /* padding-left: 15px; */
+                background-color: pink;
+                gap: 10px;
             }
         
        

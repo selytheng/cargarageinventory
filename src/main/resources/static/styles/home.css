@@ -1,0 +1,10 @@
+body{
+    background-color: #D6803A;
+    width: 100px;
+    padding: 2px;
+}
+.name{
+    background-color: red;
+    width: 100px;
+    height: 40px;
+}

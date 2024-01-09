@@ -155,7 +155,7 @@
 
             /* …or this */
             tr:nth-of-type(even) {
-                background-color: #e6dbdb; 
+                background-color: #ccc; 
                 }
             td{
                 width: 180px;

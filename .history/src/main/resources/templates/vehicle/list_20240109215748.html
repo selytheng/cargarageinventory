@@ -13,6 +13,7 @@
         
         <div class="container-header">
             <div class="name">Car Management System</div>
+            <a href="./home.html"><div>aljf;lksd</div></a>
             <!-- <input type="" placeholder="Search by..."> -->
            
           
@@ -79,9 +80,9 @@
                     <thead>
                         <tr>
                             <th class="you" >ID</th>
-                            <th>Brand</th>
-                            <th>Model</th>
                             <th>Model Year</th>
+                            <th>Manufacturer</th>
+                            <th>Model</th>
                             <th>Color</th>
                             <th>Mileage</th>
                             <th>Registration Number</th>
@@ -92,9 +93,9 @@
                     <tbody>
                         <tr th:each="vehicle : ${vehicles}">
                             <td class="you" th:text="${vehicle.vid}"></td>
+                            <td th:text="${vehicle.model_year}"></td>
                             <td th:text="${vehicle.manufacturer}"></td>
                             <td th:text="${vehicle.model}"></td>
-                            <td th:text="${vehicle.model_year}"></td>
                             <td th:text="${vehicle.color}"></td>
                             <td th:text="${vehicle.mileage}"></td>
                             <td th:text="${vehicle.registation_number}"></td>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Vehicle List</title>
     <link rel="stylesheet" th:href="@{/styles/vehicle.css}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" th:href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
    
     <script type="text/javascript" th:src="@{/scripts/vehicle.js}" ></script>
 </head>
@@ -78,10 +78,10 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th class="you" >ID</th>
-                            <th>Brand</th>
-                            <th>Model</th>
+                            <th >ID</th>
                             <th>Model Year</th>
+                            <th>Manufacturer</th>
+                            <th>Model</th>
                             <th>Color</th>
                             <th>Mileage</th>
                             <th>Registration Number</th>
@@ -91,10 +91,10 @@
                     </thead>
                     <tbody>
                         <tr th:each="vehicle : ${vehicles}">
-                            <td class="you" th:text="${vehicle.vid}"></td>
+                            <td th:text="${vehicle.vid}"></td>
+                            <td th:text="${vehicle.model_year}"></td>
                             <td th:text="${vehicle.manufacturer}"></td>
                             <td th:text="${vehicle.model}"></td>
-                            <td th:text="${vehicle.model_year}"></td>
                             <td th:text="${vehicle.color}"></td>
                             <td th:text="${vehicle.mileage}"></td>
                             <td th:text="${vehicle.registation_number}"></td>

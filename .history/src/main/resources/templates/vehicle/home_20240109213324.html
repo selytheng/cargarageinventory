@@ -13,6 +13,7 @@
         
         <div class="container-header">
             <div class="name">Car Management System</div>
+            <div>sdfsadf</div>
             <!-- <input type="" placeholder="Search by..."> -->
            
           
@@ -60,56 +61,6 @@
                         <select class="search">
                             <option disabled selected value>Search by...</option>
                                 <option>Brand</option>
-                                <option>Models</option>
-                                <option>Color</option>
-                                <option>Mileage</option>
-                        </select>
-                    
-                </div>
-                <div class="showTotal">
-                    <input type="text" placeholder="total:"></form>
-                </div>
-             
-                <a th:href="@{/vehicles/showFormForAdd}" class="add">Add</a>
-                
-               </div>
-            </br></br>
-               <div>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th class="you" >ID</th>
-                            <th>Brand</th>
-                            <th>Model</th>
-                            <th>Model Year</th>
-                            <th>Color</th>
-                            <th>Mileage</th>
-                            <th>Registration Number</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="vehicle : ${vehicles}">
-                            <td class="you" th:text="${vehicle.vid}"></td>
-                            <td th:text="${vehicle.manufacturer}"></td>
-                            <td th:text="${vehicle.model}"></td>
-                            <td th:text="${vehicle.model_year}"></td>
-                            <td th:text="${vehicle.color}"></td>
-                            <td th:text="${vehicle.mileage}"></td>
-                            <td th:text="${vehicle.registation_number}"></td>
-                            <td th:text="${vehicle.price}"></td>
-                            <td class="act">
-                                <a th:href="@{/vehicles/showFormForUpdate(vid=${vehicle.vid})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                <a th:href="@{/vehicles/delete(vid=${vehicle.vid})}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-               </div>
-               
-            </div>
-        </div>
-    </div>
+
 </body>
 </html>

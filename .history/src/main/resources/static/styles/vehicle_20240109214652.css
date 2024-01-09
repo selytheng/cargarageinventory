@@ -9,7 +9,7 @@
 
 }
     .container-header{
-        width: 1463px;
+        width: 97.3%;
         height: 70px;
         background-color: #D6803A;
         display: flex;
@@ -51,7 +51,7 @@
             height: 100%;
             background-color: #fff;
             border: solid black ;
-            border-width: 0px 1px 0 0;
+            border-width: 0px 2px 0 0;
             display: flex;
             flex-direction: column;
             /* justify-content: center; */
@@ -60,7 +60,7 @@
             gap: 20px;
         }
             .box-selected , .box-unselected, .logout{
-                width: 94%;
+                width: 100%;
                 height: 40px;
                 background-color: #D6803A;
                 color: #fff;
@@ -147,15 +147,14 @@
                 /* align-items: center; */
                 padding: 0 0 0 5px;
             }
+          
             /* Do this… */
             tr:nth-of-type(odd) {
-                background-color: #fff; 
-                /* padding: 0 0 0 5px; */
-            }
+                background-color: #ccc; }
 
             /* …or this */
             tr:nth-of-type(even) {
-                background-color: #e6dbdb; 
+                background-color: #fff; 
                 }
             td{
                 width: 180px;
@@ -170,21 +169,6 @@
             }
             a{
                 text-decoration: none;
-            }
-            .you{
-                /* background-color: green; */
-                width: 70px;
-                /* display: flex; */
-            
-            }
-            .act{
-                width: 90px;
-                display: flex;
-                /* background-color: pink; */
-                gap: 20px;
-                align-items: center;
-                justify-content: center;
-                /* padding-left: 15px; */
             }
         
        
