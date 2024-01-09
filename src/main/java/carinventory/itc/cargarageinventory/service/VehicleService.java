@@ -16,4 +16,6 @@ public interface VehicleService {
     // Add the following method to the VehicleService interface
 
     List<Vehicle> searchVehicles(String search);
+
+    void increaseStock(int vid, int quantity);
 }

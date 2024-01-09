@@ -20,6 +20,7 @@
                 <th>Mileage</th>
                 <th>Registration Number</th>
                 <th>Price</th>
+                <th>Stock</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -33,6 +34,7 @@
                 <td th:text="${vehicle.mileage}"></td>
                 <td th:text="${vehicle.registation_number}"></td>
                 <td th:text="${vehicle.price}"></td>
+                <td th:text="${vehicle.stockQuantity}"></td>
                 <td>
                     <a th:href="@{/vehicles/showFormForUpdate(vid=${vehicle.vid})}">Edit</a>
                     <a th:href="@{/vehicles/delete(vid=${vehicle.vid})}">Delete</a>
@@ -51,5 +53,7 @@
         <button type="submit">Search</button>
     </form>
 
+
+    <a th:href="@{/vehicles/showFormForIncreaseStock}">Increase Stock</a>
     </body>
     </html>

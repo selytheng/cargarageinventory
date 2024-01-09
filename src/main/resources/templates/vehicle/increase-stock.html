@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Increase Stock</title>
+  </head>
+  <body>
+    <h2>Increase Stock</h2>
+
+    <form th:action="@{/vehicles/increaseStock}" method="post">
+      <label>Vehicle ID: <input type="text" name="vid" /></label><br />
+      <label>Quantity: <input type="text" name="quantity" /></label><br />
+
+      <button type="submit">Add</button>
+    </form>
+
+    <a th:href="@{/vehicles/list}">Back to Vehicle List</a>
+  </body>
+</html>

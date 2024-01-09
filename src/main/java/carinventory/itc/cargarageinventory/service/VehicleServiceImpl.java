@@ -58,4 +58,19 @@ public class VehicleServiceImpl implements VehicleService {
 
         return vehicleRepository.findAll(spec);
     }
+
+    @Override
+    public void increaseStock(int vid, int quantity) {
+        Vehicle vehicle = vehicleRepository.findById(vid).orElse(null);
+        if (vehicle != null) {
+            Integer currentStock = vehicle.getStockQuantity();
+
+            // Check if currentStock is null, and handle it accordingly
+            int newStock = (currentStock != null ? currentStock : 0) + quantity;
+
+            vehicle.setStockQuantity(newStock);
+            vehicleRepository.save(vehicle);
+        }
+    }
+
 }

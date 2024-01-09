@@ -1,5 +1,6 @@
 package carinventory.itc.cargarageinventory.controller;
 
+import carinventory.itc.cargarageinventory.entity.IncreaseStockForm;
 import carinventory.itc.cargarageinventory.entity.Vehicle;
 import carinventory.itc.cargarageinventory.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,4 +63,15 @@ public class VehicleController {
         return "vehicle/list";
     }
 
+    @GetMapping("/showFormForIncreaseStock")
+    public String showFormForIncreaseStock(Model model) {
+        model.addAttribute("increaseStockForm", new IncreaseStockForm());
+        return "vehicle/increase-stock";
+    }
+
+    @PostMapping("/increaseStock")
+    public String increaseStock(@ModelAttribute("increaseStockForm") IncreaseStockForm form) {
+        vehicleService.increaseStock(form.getVid(), form.getQuantity());
+        return "redirect:/vehicles/list";
+    }
 }

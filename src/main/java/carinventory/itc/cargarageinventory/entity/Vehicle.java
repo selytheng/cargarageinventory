@@ -36,6 +36,9 @@ public class Vehicle {
     @Column(name = "price")
     private String price;
 
+    @Column(name = "stock_quantity")
+    private Integer stockQuantity;
+
     public int getVid() {
         return vid;
     }
@@ -100,8 +103,16 @@ public class Vehicle {
         this.price = price;
     }
 
+    public Integer getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(Integer stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
+
     public Vehicle(int vid, int model_year, String manufacturer, String model, String color, String mileage,
-            String registation_number, String price) {
+            String registation_number, String price, Integer stockQuantity) {
         this.vid = vid;
         this.model_year = model_year;
         this.manufacturer = manufacturer;
@@ -110,6 +121,7 @@ public class Vehicle {
         this.mileage = mileage;
         this.registation_number = registation_number;
         this.price = price;
+        this.stockQuantity = stockQuantity;
     }
 
     public Vehicle() {
@@ -120,6 +132,7 @@ public class Vehicle {
         this.mileage = null;
         this.registation_number = null;
         this.price = null;
+        this.stockQuantity = 0;
     }
 
 }
