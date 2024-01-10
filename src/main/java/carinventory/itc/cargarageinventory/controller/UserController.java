@@ -1,7 +1,5 @@
 package carinventory.itc.cargarageinventory.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +12,6 @@ import carinventory.itc.cargarageinventory.entity.UserForm;
 @Controller
 @RequestMapping("/")
 public class UserController {
-
-    @Autowired
-    private UserDetailsService userDetailsServicel;
 
     @GetMapping("/login")
     public String login() {
