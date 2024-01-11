@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle List</title>
+    <link rel="stylesheet" th:href="@{/styles/vehicle.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+   
+    <script type="text/javascript" th:src="@{/scripts/vehicle.js}" ></script>
+</head>
+<body>
+    <div class="frame">
+        
+        <div class="container-header">
+            <div class="name" >
+            <a th:href="@{/vehicles/home}">Car Management System</a>    
+            </div>
+            <!-- <input type="" placeholder="Search by..."> -->
+           
+          
+            <div class="more">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <img class="profile" src="./img/profile.jpg" alt="">
+            </div>
+        </div>
+        <div class="container-body">
+            <div class="list-header">
+                <div class="box-unselected">
+                    <i class="fa fa-th-list" aria-hidden="true"></i>
+                    Dashboard
+                </div>
+                <div class="box-unselected">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    User Authentication
+                </div>
+                <div class="box-selected">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    Manage Products
+                </div>
+                <a href="./service.html"><div class="box-unselected">
+                    <i class="fa fa-area-chart" aria-hidden="true"></i>
+                    Services
+                </div></a>
+                <div class="box-unselected">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                    Email Reports
+                </div>
+                <div class="box-unselected">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    Setting
+                </div>
+                <div class="logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Log Out
+                </div>
+                
+            </div>
+            <div class="content">
+               <div class="navBar">
+                <div class="searchBar">
+                    <form th:action="@{/vehicles/list}" method="get">
+                        <label class="sear">Search: <input type="text" name="search" class="search" /></label>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+             
+                <a th:href="@{/vehicles/showFormForAdd}" class="add">ADD</a>
+                
+               </div>
+            </br></br>
+               <div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th class="id" >ID</th>
+                            <th class="brand">Brand</th>
+                            <th>Model</th>
+                            <th>Model Year</th>
+                            <th>Color</th>
+                            <th>Mileage</th>
+                            <th>Registration Number</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="vehicle : ${vehicles}">
+                            <td class="id" th:text="${vehicle.vid}"></td>
+                            <td class="brand" th:text="${vehicle.manufacturer}"></td>
+                            <td th:text="${vehicle.model}"></td>
+                            <td th:text="${vehicle.model_year}"></td>
+                            <td th:text="${vehicle.color}"></td>
+                            <td th:text="${vehicle.mileage}"></td>
+                            <td th:text="${vehicle.registation_number}"></td>
+                            <td th:text="${vehicle.price}"></td>
+                            <td class="act">
+                                <a th:href="@{/vehicles/showFormForUpdate(vid=${vehicle.vid})}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <a th:href="@{/vehicles/delete(vid=${vehicle.vid})}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+               </div>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
